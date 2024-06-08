@@ -72,7 +72,7 @@ def run(train_datasets, valid_datasets, test_datasets, seed):
 
     if isfile(model_weights):
         print(f"{config['fed_name']} Loaded")
-        server = torch.load(model_weights).to('cpu')
+        server = torch.load(model_weights).to(device)
     else:
         print("Starting training since file was not found: ", model_weights)
         loss_s, server = fed_solver(train_datasets, valid_datasets, test_datasets, config).train()
